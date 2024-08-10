@@ -1,6 +1,6 @@
 from datetime import datetime
 from app import app
-from models import db, User, Message, Hashtag, Core, Follow, Comment, Like
+from models import db, User, Message, Hashtag, Core, Follow, Comment, Like, Save, Flag
 
 # Define the seed data
 def seed_data():
@@ -11,6 +11,8 @@ def seed_data():
         Like.query.delete()
         Comment.query.delete()
         Follow.query.delete()
+        Save.query.delete()
+        Flag.query.delete()
         Core.query.delete()
         Hashtag.query.delete()
         Message.query.delete()
@@ -45,15 +47,131 @@ def seed_data():
                 hashtag_id=hashtags[0].id,
                 title="Beautiful Sunset",
                 description="Captured this stunning sunset yesterday.",
-                image_url="https://example.com/sunset.jpg",
+                media_url="https://example.com/sunset.jpg",
+                media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="New Smartphone Release",
                 description="Check out the features of this new smartphone.",
-                link_url="https://example.com/video.mp4",
+                media_url="https://example.com/video.mp4",
+                media_type="video"
             ),
+            Core(
+                hashtag_id=hashtags[0].id,
+                title="Mountain Hike",
+                description="Amazing view from the top of the mountain.",
+                media_url="https://example.com/mountain.jpg",
+                media_type="image"
+            ),
+            Core(
+                hashtag_id=hashtags[0].id,
+                title="Calm Forest",
+                description="A walk in the peaceful forest.",
+                media_url="https://example.com/forest.jpg",
+                media_type="image"
+            ),
+            Core(
+                hashtag_id=hashtags[1].id,
+                title="Tech Conference 2024",
+                description="Highlights from the tech conference.",
+                media_url="https://example.com/conference.mp4",
+                media_type="video"
+            ),
+            Core(
+                hashtag_id=hashtags[1].id,
+                title="New AI Breakthrough",
+                description="Exploring the latest in AI technology.",
+                media_url="https://example.com/ai.mp4",
+                media_type="video"
+            ),
+            # Add more cores to reach 20 in total
+            Core(
+                hashtag_id=hashtags[0].id,
+                title="Ocean Waves",
+                description="Relaxing sound of ocean waves.",
+                media_url="https://example.com/ocean.jpg",
+                media_type="image"
+            ),
+            Core(
+                hashtag_id=hashtags[0].id,
+                title="Night Sky",
+                description="Starry night sky captured during my camping trip.",
+                media_url="https://example.com/night_sky.jpg",
+                media_type="image"
+            ),
+            Core(
+                hashtag_id=hashtags[1].id,
+                title="Robotics Revolution",
+                description="The latest advancements in robotics.",
+                media_url="https://example.com/robotics.mp4",
+                media_type="video"
+            ),
+            Core(
+                hashtag_id=hashtags[1].id,
+                title="Quantum Computing Explained",
+                description="An introduction to quantum computing.",
+                media_url="https://example.com/quantum.mp4",
+                media_type="video"
+            ),
+            Core(
+                hashtag_id=hashtags[0].id,
+                title="Wildlife Safari",
+                description="A glimpse into the wildlife during my safari trip.",
+                media_url="https://example.com/safari.jpg",
+                media_type="image"
+            ),
+            Core(
+                hashtag_id=hashtags[0].id,
+                title="Spring Blossoms",
+                description="Beautiful spring flowers in full bloom.",
+                media_url="https://example.com/blossoms.jpg",
+                media_type="image"
+            ),
+            Core(
+                hashtag_id=hashtags[1].id,
+                title="Space Exploration",
+                description="The future of space travel.",
+                media_url="https://example.com/space.mp4",
+                media_type="video"
+            ),
+            Core(
+                hashtag_id=hashtags[1].id,
+                title="Cybersecurity Trends",
+                description="Emerging trends in cybersecurity.",
+                media_url="https://example.com/cybersecurity.mp4",
+                media_type="video"
+            ),
+            Core(
+                hashtag_id=hashtags[0].id,
+                title="Autumn Leaves",
+                description="The beauty of autumn leaves falling.",
+                media_url="https://example.com/autumn.jpg",
+                media_type="image"
+            ),
+            Core(
+                hashtag_id=hashtags[0].id,
+                title="Desert Dunes",
+                description="Mesmerizing sand dunes in the desert.",
+                media_url="https://example.com/desert.jpg",
+                media_type="image"
+            ),
+            Core(
+                hashtag_id=hashtags[1].id,
+                title="Blockchain Explained",
+                description="Understanding the fundamentals of blockchain.",
+                media_url="https://example.com/blockchain.mp4",
+                media_type="video"
+            ),
+            Core(
+                hashtag_id=hashtags[1].id,
+                title="Virtual Reality Innovations",
+                description="The latest innovations in virtual reality.",
+                media_url="https://example.com/vr.mp4",
+                media_type="video"
+            )
         ]
+        
         db.session.add_all(cores)
         db.session.commit()
         print("Core seeded")
