@@ -5,8 +5,9 @@ from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity, create_access_token
 from json import JSONEncoder
 from datetime import datetime
+from models import db 
 import os
-
+from resources.hashtag_filter import CoreByHashtagResource
 from models import db, User, Message, Hashtag, Core, Follow, Comment, Like
 from resources.user import UserResource, UserListResource
 from resources.message import MessageResource, MessageListResource
@@ -15,6 +16,8 @@ from resources.core import CoreResource, CoreListResource, CoreSearchResource, C
 from resources.follow import FollowResource, FollowListResource
 from resources.comment import CommentResource, CommentListResource
 from resources.like import LikeResource, LikeListResource
+from resources.save import SaveResource
+from resources.flag import FlagResource
 import ssl
 import certifi
 ssl._create_default_https_context = ssl.create_default_context(cafile=certifi.where())
@@ -34,7 +37,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.json_encoder = CustomJSONEncoder  # Use the custom JSON encoder
 
-# Setup CORS
 CORS(app)
 
 # Initialize the database and migration
@@ -78,6 +80,7 @@ api.add_resource(UserResource, '/users/<int:id>')
 api.add_resource(MessageListResource, '/messages')
 api.add_resource(MessageResource, '/messages/<int:id>')
 
+api.add_resource(CoreByHashtagResource, '/cores/hashtag/<string:hashtag_name>')
 api.add_resource(HashtagListResource, '/hashtags')
 api.add_resource(HashtagResource, '/hashtags/<int:id>')
 
@@ -94,6 +97,9 @@ api.add_resource(CommentResource, '/comments/<int:id>')
 
 api.add_resource(LikeListResource, '/likes')
 api.add_resource(LikeResource, '/likes/<int:id>')
+
+api.add_resource(SaveResource, '/cores/<int:core_id>/saves')
+api.add_resource(FlagResource, '/flags')
 
 if __name__ == "__main__":
     app.run(debug=True)

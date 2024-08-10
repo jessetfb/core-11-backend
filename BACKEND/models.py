@@ -21,6 +21,8 @@ class User(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, default=func.now(), onupdate=func.now())
     is_admin = db.Column(db.Boolean, default=False)
 
+    saves = db.relationship('Save', back_populates='user')
+    flags = db.relationship('Flag', back_populates='user')
     messages_sent = db.relationship('Message', foreign_keys='Message.sender_id', back_populates='sender')
     messages_received = db.relationship('Message', foreign_keys='Message.recipient_id', back_populates='recipient')
     hashtags = db.relationship('Hashtag', back_populates='user')
@@ -92,12 +94,14 @@ class Core(db.Model, SerializerMixin):
     hashtag_id = db.Column(db.Integer, db.ForeignKey('hashtags.id'), nullable=False)
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text)
-    image_url = db.Column(db.String(255))
-    link_url = db.Column(db.String(255))
+    media_url = db.Column(db.String(255))  # Store either image or video URL
+    media_type = db.Column(db.String(50))  # "image" or "video"
     created_at = db.Column(db.DateTime, default=func.now())
     updated_at = db.Column(db.DateTime, default=func.now(), onupdate=func.now())
     image_features = db.Column(db.LargeBinary)  # Store features as binary
 
+    saves = db.relationship('Save', back_populates='core')
+    flags = db.relationship('Flag', back_populates='core')
     hashtag = db.relationship('Hashtag', back_populates='cores')
     comments = db.relationship('Comment', back_populates='core')
     likes = db.relationship('Like', back_populates='core')
@@ -108,11 +112,12 @@ class Core(db.Model, SerializerMixin):
             'hashtag_id': self.hashtag_id,
             'title': self.title,
             'description': self.description,
-            'image_url': self.image_url,
-            'link_url': self.link_url,
+            'media_url': self.media_url,
+            'media_type': self.media_type,
             'created_at': self.created_at.isoformat(),
             'updated_at': self.updated_at.isoformat()
         }
+
 
 class Follow(db.Model, SerializerMixin):
     __tablename__ = 'follows'
@@ -170,5 +175,44 @@ class Like(db.Model, SerializerMixin):
             'id': self.id,
             'user_id': self.user_id,
             'core_id': self.core_id,
+            'created_at': self.created_at.isoformat() if self.created_at else None
+        }
+class Save(db.Model, SerializerMixin):
+    __tablename__ = 'saves'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    core_id = db.Column(db.Integer, db.ForeignKey('core.id'), nullable=False)
+    created_at = db.Column(db.DateTime, default=func.now())
+
+    user = db.relationship('User', back_populates='saves')
+    core = db.relationship('Core', back_populates='saves')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'core_id': self.core_id,
+            'created_at': self.created_at.isoformat() if self.created_at else None
+        }
+
+class Flag(db.Model, SerializerMixin):
+    __tablename__ = 'flags'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    core_id = db.Column(db.Integer, db.ForeignKey('core.id'), nullable=False)
+    reason = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, default=func.now())
+
+    user = db.relationship('User', back_populates='flags')
+    core = db.relationship('Core', back_populates='flags')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'core_id': self.core_id,
+            'reason': self.reason,
             'created_at': self.created_at.isoformat() if self.created_at else None
         }
