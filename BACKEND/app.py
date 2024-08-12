@@ -7,6 +7,7 @@ from json import JSONEncoder
 from datetime import datetime
 from models import db 
 import os
+from werkzeug.security import generate_password_hash, check_password_hash
 from resources.hashtag_filter import CoreByHashtagResource
 from models import db, User, Message, Hashtag, Core, Follow, Comment, Like
 from resources.user import UserResource, UserListResource
@@ -47,7 +48,7 @@ migrate = Migrate(app, db)
 api = Api(app)
 
 # Configure JWT
-app.config["JWT_SECRET_KEY"] = os.environ.get("JWT_SECRET_KEY", "your_jwt_secret_key")
+app.config["JWT_SECRET_KEY"] = os.environ.get("JWT_SECRET_KEY", "your-secret-key")
 jwt = JWTManager(app)
 
 @app.route("/")
@@ -61,11 +62,34 @@ def create_token():
 
     # Verify email and password with your database here
     user = User.query.filter_by(email=email).first()
-    if user and user.password == password:
+    if user and check_password_hash(user.password, password):
         access_token = create_access_token(identity=email)
         return jsonify(access_token=access_token), 200
 
     return jsonify({"msg": "Bad email or password"}), 401
+
+@app.route("/register", methods=["POST"])
+def register():
+    username = request.json.get("username", None)
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+
+    # Check if the user already exists
+    if User.query.filter_by(email=email).first():
+        return jsonify({"message": "Email already exists"}), 400
+
+    # Hash the password before storing it
+    hashed_password = generate_password_hash(password)
+
+    # Create a new user
+    new_user = User(username=username, email=email, password=hashed_password)
+    db.session.add(new_user)
+    db.session.commit()
+
+    # Generate a JWT token for the newly registered user
+    access_token = create_access_token(identity=email)
+    
+    return jsonify(access_token=access_token), 201
 
 @app.route("/protected", methods=["GET"])
 @jwt_required()
