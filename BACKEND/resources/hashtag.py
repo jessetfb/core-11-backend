@@ -1,6 +1,5 @@
-# resources/hashtag.py
 from flask_restful import Resource, reqparse
-from models import db, Hashtag
+from models import db, Core, Hashtag
 
 class HashtagListResource(Resource):
     def get(self):
@@ -50,3 +49,12 @@ class HashtagResource(Resource):
         db.session.delete(hashtag)
         db.session.commit()
         return '', 204
+
+class CoreByHashtagResource(Resource):
+    def get(self, hashtag_name):
+        hashtag = Hashtag.query.filter_by(name=hashtag_name).first()
+        if not hashtag:
+            return {'message': 'Hashtag not found'}, 404
+        
+        cores = Core.query.filter_by(hashtag_id=hashtag.id).all()
+        return [core.to_dict() for core in cores], 200
