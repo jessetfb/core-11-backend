@@ -119,7 +119,7 @@ api.add_resource(FollowResource, '/follows/<int:follower_id>/<int:followee_id>')
 api.add_resource(CommentListResource, '/comments')
 api.add_resource(CommentResource, '/comments/<int:id>')
 
-api.add_resource(LikeListResource, '/likes')
+api.add_resource(LikeListResource, '/likes')    
 api.add_resource(LikeResource, '/likes/<int:id>')
 
 api.add_resource(SaveResource, '/cores/<int:core_id>/saves')

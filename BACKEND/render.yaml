@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: my-flask-app
+    env: python
+    buildCommand: "pipenv install"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:8000"
+    plan: free
+    regions:
+      - oregon
