@@ -1,15 +1,12 @@
 from flask_restful import Resource, reqparse
 from models import db, Core
-from sqlalchemy import or_
+from flask import request, abort, url_for
+from werkzeug.utils import secure_filename
 import base64
 from image_recognition import extract_features
 import numpy as np
-from flask import request, abort, url_for
-from werkzeug.utils import secure_filename
 import os
-from werkzeug.exceptions import BadRequest
 from mimetypes import guess_type
-from flask import jsonify
 
 # Configure upload folder
 UPLOAD_FOLDER = 'uploads/'
@@ -24,16 +21,11 @@ def allowed_file(filename):
 
 class CoreListResource(Resource):
     def get(self):
-    # Use query parameters for GET requests
-     parser = reqparse.RequestParser()
-     parser.add_argument('page', type=int, default=1, help="Page number", location='args')
-     parser.add_argument('per_page', type=int, default=10, help="Cores per page", location='args')
-     args = parser.parse_args()
+        # Fetch all cores
+        cores = Core.query.all()
+        core_dicts = [core.to_dict() for core in cores]
+        return core_dicts, 200
 
-     cores = Core.query.paginate(page=args['page'], per_page=args['per_page']).items
-     core_dicts = [core.to_dict() for core in cores]
-     return core_dicts, 200
- 
     def post(self):
         # Expect JSON data in the body for POST requests
         if not request.is_json:
@@ -152,7 +144,6 @@ class CoreResource(Resource):
         db.session.commit()
         return '', 204
 
-
 class CoreSearchResource(Resource):
     def get(self):
         parser = reqparse.RequestParser()
@@ -170,7 +161,6 @@ class CoreSearchResource(Resource):
         ).paginate(page=args['page'], per_page=args['per_page']).items
 
         return [result.to_dict() for result in results], 200
-
 
 class CoreImageSearchResource(Resource):
     def post(self):
