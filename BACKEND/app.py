@@ -126,4 +126,4 @@ api.add_resource(SaveResource, '/cores/<int:core_id>/saves')
 api.add_resource(FlagResource, '/flags')
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8000)
