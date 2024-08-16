@@ -47,42 +47,42 @@ def seed_data():
                 hashtag_id=hashtags[0].id,
                 title="Beautiful Sunset",
                 description="Captured this stunning sunset yesterday.",
-                media_url="https://example.com/sunset.jpg",
+                media_url="https://i0.wp.com/lizzydavis.com/wp-content/uploads/2022/03/DSC_5981.jpg?resize=960%2C636&ssl=1",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="New Smartphone Release",
                 description="Check out the features of this new smartphone.",
-                media_url="https://example.com/video.mp4",
+                media_url="https://www.icegif.com/wp-content/uploads/2023/01/icegif-1907.gif",
                 media_type="video"
             ),
             Core(
                 hashtag_id=hashtags[0].id,
                 title="Mountain Hike",
                 description="Amazing view from the top of the mountain.",
-                media_url="https://example.com/mountain.jpg",
+                media_url="https://www.reserveamerica.com/articles/wp-content/uploads/2024/07/11174967-1e85-45df-8097-ac30b3bb1c34.jpg",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[0].id,
                 title="Calm Forest",
                 description="A walk in the peaceful forest.",
-                media_url="https://example.com/forest.jpg",
+                media_url="https://static.vecteezy.com/system/resources/thumbnails/030/029/541/small/forest-river-silence-tranquility-grace-landscape-harmony-rest-calmness-unity-harmonygraphy-photo.jpg",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="Tech Conference 2024",
                 description="Highlights from the tech conference.",
-                media_url="https://example.com/conference.mp4",
+                media_url="https://fintechnews.am/wp-content/uploads/2024/06/Digital-Banking.gif",
                 media_type="video"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="New AI Breakthrough",
                 description="Exploring the latest in AI technology.",
-                media_url="https://example.com/ai.mp4",
+                media_url="https://miro.medium.com/v2/resize:fit:1400/1*DyGQyS5t94IhmzD1G_fEQg.gif",
                 media_type="video"
             ),
             # Add more cores to reach 20 in total
@@ -90,49 +90,49 @@ def seed_data():
                 hashtag_id=hashtags[0].id,
                 title="Ocean Waves",
                 description="Relaxing sound of ocean waves.",
-                media_url="https://example.com/ocean.jpg",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUL8tJvLMOppoNwmiJzMdNwdZ8Ll-0CtA85Q&s",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[0].id,
                 title="Night Sky",
                 description="Starry night sky captured during my camping trip.",
-                media_url="https://example.com/night_sky.jpg",
+                media_url="https://www.shutterstock.com/image-photo/evening-summer-camping-spruce-forest-600nw-1845501754.jpg",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="Robotics Revolution",
                 description="The latest advancements in robotics.",
-                media_url="https://example.com/robotics.mp4",
+                media_url="https://media.tenor.com/ZnpxgNXkVbEAAAAM/helldivers-automaton.gif",
                 media_type="video"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="Quantum Computing Explained",
                 description="An introduction to quantum computing.",
-                media_url="https://example.com/quantum.mp4",
+                media_url="https://i.makeagif.com/media/8-25-2016/ZQktuz.gif",
                 media_type="video"
             ),
             Core(
                 hashtag_id=hashtags[0].id,
                 title="Wildlife Safari",
                 description="A glimpse into the wildlife during my safari trip.",
-                media_url="https://example.com/safari.jpg",
+                media_url="https://www.kenyasafari.com/images/porini-lion-camp-game-drive-masai-mara-786x416.jpg",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[0].id,
                 title="Spring Blossoms",
                 description="Beautiful spring flowers in full bloom.",
-                media_url="https://example.com/blossoms.jpg",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1L_Zrryr552s4NaduEZ5Mb7KqvIIs-QYbZA&s",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="Space Exploration",
                 description="The future of space travel.",
-                media_url="https://example.com/space.mp4",
+                media_url="https://bigthink.com/wp-content/uploads/2016/12/origin.gif?w=480",
                 media_type="video"
             ),
             Core(
