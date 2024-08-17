@@ -47,21 +47,21 @@ def seed_data():
                 hashtag_id=hashtags[0].id,
                 title="Beautiful Sunset",
                 description="Captured this stunning sunset yesterday.",
-                media_url="https://i0.wp.com/lizzydavis.com/wp-content/uploads/2022/03/DSC_5981.jpg?resize=960%2C636&ssl=1",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqeQfBWiZ-B722tnn5ioVq2obrB9TxFKwXQw&s",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="New Smartphone Release",
                 description="Check out the features of this new smartphone.",
-                media_url="https://www.icegif.com/wp-content/uploads/2023/01/icegif-1907.gif",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ_cOT-R2DZFClATgFg6QJ9lPmQ_If43wXPg&s",
                 media_type="video"
             ),
             Core(
                 hashtag_id=hashtags[0].id,
                 title="Mountain Hike",
                 description="Amazing view from the top of the mountain.",
-                media_url="https://www.reserveamerica.com/articles/wp-content/uploads/2024/07/11174967-1e85-45df-8097-ac30b3bb1c34.jpg",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpU_FLBO5sm1DcSiclP8JKBj9kdVX3q6RtOQ&s",
                 media_type="image"
             ),
             Core(
@@ -75,7 +75,7 @@ def seed_data():
                 hashtag_id=hashtags[1].id,
                 title="Tech Conference 2024",
                 description="Highlights from the tech conference.",
-                media_url="https://fintechnews.am/wp-content/uploads/2024/06/Digital-Banking.gif",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHilqyoaCSvN5w5hCm8QIInCiClpGcgGDmYQ&s",
                 media_type="video"
             ),
             Core(
@@ -90,84 +90,84 @@ def seed_data():
                 hashtag_id=hashtags[0].id,
                 title="Ocean Waves",
                 description="Relaxing sound of ocean waves.",
-                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUL8tJvLMOppoNwmiJzMdNwdZ8Ll-0CtA85Q&s",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2JtU3JbDXS1ikxgRF3lqn_BVcQINrxbdVgw&s",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[0].id,
                 title="Night Sky",
                 description="Starry night sky captured during my camping trip.",
-                media_url="https://www.shutterstock.com/image-photo/evening-summer-camping-spruce-forest-600nw-1845501754.jpg",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj0_n5Z5-NjaoOTweBcTUaENjS8oK9giA1sg&s",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="Robotics Revolution",
                 description="The latest advancements in robotics.",
-                media_url="https://media.tenor.com/ZnpxgNXkVbEAAAAM/helldivers-automaton.gif",
+                media_url="https://media.tenor.com/fRw-3JZwfTwAAAAM/cryptoflash-crypto.gif",
                 media_type="video"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="Quantum Computing Explained",
                 description="An introduction to quantum computing.",
-                media_url="https://i.makeagif.com/media/8-25-2016/ZQktuz.gif",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUDeOzBgrBPsZ5B2XKBEZbFDpCWpFAgsGTig&s",
                 media_type="video"
             ),
             Core(
                 hashtag_id=hashtags[0].id,
                 title="Wildlife Safari",
                 description="A glimpse into the wildlife during my safari trip.",
-                media_url="https://www.kenyasafari.com/images/porini-lion-camp-game-drive-masai-mara-786x416.jpg",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRobAKwGyrAlyX6xza9YCSbJYGfoaSSEKJOWQ&s",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[0].id,
                 title="Spring Blossoms",
                 description="Beautiful spring flowers in full bloom.",
-                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1L_Zrryr552s4NaduEZ5Mb7KqvIIs-QYbZA&s",
+                media_url="https://cotswoldjourneys.com/wp-content/uploads/2023/08/blossom-Cotswold-Journeys.jpg",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="Space Exploration",
                 description="The future of space travel.",
-                media_url="https://bigthink.com/wp-content/uploads/2016/12/origin.gif?w=480",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuq3KK2PBLXud61n2irTcNWWGdorxk3JSZBQ&s",
                 media_type="video"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="Cybersecurity Trends",
                 description="Emerging trends in cybersecurity.",
-                media_url="https://example.com/cybersecurity.mp4",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREaOCZsW8a4EuHgz0HVbIUy32TrA7itKQJkA&s",
                 media_type="video"
             ),
             Core(
                 hashtag_id=hashtags[0].id,
                 title="Autumn Leaves",
                 description="The beauty of autumn leaves falling.",
-                media_url="https://example.com/autumn.jpg",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4Tr2xictPcmuEJ336QkArovJBirTGCOFtKg&s",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[0].id,
                 title="Desert Dunes",
                 description="Mesmerizing sand dunes in the desert.",
-                media_url="https://example.com/desert.jpg",
+                media_url="hhttps://images.newscientist.com/wp-content/uploads/2020/11/11125043/crescendo-1200px_web.jpg",
                 media_type="image"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="Blockchain Explained",
                 description="Understanding the fundamentals of blockchain.",
-                media_url="https://example.com/blockchain.mp4",
+                media_url="https://www.edureka.co/blog/wp-content/uploads/2017/08/Action-PSD.gif",
                 media_type="video"
             ),
             Core(
                 hashtag_id=hashtags[1].id,
                 title="Virtual Reality Innovations",
                 description="The latest innovations in virtual reality.",
-                media_url="https://example.com/vr.mp4",
+                media_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDF7k8aZcDpWeKYpDu1D4qsRGU1esPmmcS9g&s",
                 media_type="video"
             )
         ]
